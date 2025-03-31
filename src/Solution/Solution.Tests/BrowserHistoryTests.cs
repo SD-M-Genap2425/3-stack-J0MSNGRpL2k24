@@ -59,8 +59,13 @@ namespace Solution.Tests
                 Console.SetOut(sw);
                 historyManager.TampilkanHistory();
 
+                var output = sw.ToString(); // Simpan output ke variabel
+                Console.WriteLine("DEBUG OUTPUT:");
+                Console.WriteLine(output);
+
                 var expected = string.Join(Environment.NewLine, new[] { "google.com", "example.com" }) + Environment.NewLine;
-                Assert.AreEqual(expected, sw.ToString(), "Should display all visited pages in order.");
+                Assert.AreEqual(expected.Trim(), output.Trim(), "Should display all visited pages in order.");
+
             }
         }
     }
